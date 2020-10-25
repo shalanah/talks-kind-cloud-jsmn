@@ -82,10 +82,7 @@ export const Container = styled.div`
 `;
 
 export const useIsNotSupported = () => {
-  const [dim, setDim] = useState({
-    width: 0,
-    height: 0,
-  });
+  const [dim, setDim] = useState({});
   useEffect(() => {
     const setWinDim = () => {
       setDim({ width: window.innerWidth, height: window.innerHeight });
@@ -98,7 +95,9 @@ export const useIsNotSupported = () => {
   });
 
   // Putting a presentation together is a lot of work... I don't feel like also caring about making it responsive at this time. Might have more energy on my second talk :)
-  return dim.width < dim.height || dim.width < 1100;
+  return (
+    dim.width && dim.height && (dim.width < dim.height || dim.width < 1100)
+  );
 };
 
 const Layout = ({ children, tech, ...props }) => {
