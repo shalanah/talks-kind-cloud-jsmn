@@ -2,4 +2,4 @@
 
 ## October 28, 2020
 
-- Utilizing mdx-deck
+- Built utilizing mdx-deck

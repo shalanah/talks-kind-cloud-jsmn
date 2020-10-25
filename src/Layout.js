@@ -83,13 +83,14 @@ export const Container = styled.div`
 
 export const useIsNotSupported = () => {
   const [dim, setDim] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: 0,
+    height: 0,
   });
   useEffect(() => {
     const setWinDim = () => {
       setDim({ width: window.innerWidth, height: window.innerHeight });
     };
+    setWinDim();
     window.addEventListener("resize", setWinDim);
     return () => {
       window.removeEventListener("resize", setWinDim);
